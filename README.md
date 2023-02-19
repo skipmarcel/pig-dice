@@ -42,6 +42,10 @@ _Test: "When player rolls, playerRoll() will generate a random number "_
 _Code: playerRoll();_
 _Expected Output: number between 1 and 6_
 
+_Test: "When player rolls a 1 cosoleLog bust!"_
+_Code: playerRoll();_
+_Expected Output: bust!_
+
 ## License
 
 _If there are any isues you find, please contact me via email: skipmarcel@gmail.com_
