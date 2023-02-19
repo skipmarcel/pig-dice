@@ -19,16 +19,31 @@ class Player {
   }
 
   playerRoll() {
+    console.log(this.score);
     let totalRoll = 0;
-    let currentRoll = Math.floor(Math.random() * 6) + 1;
 
-    if (currentRoll != 1) {
-      totalRoll += currentRoll;
-      console.log(totalRoll);
-    } else {
+    const roll = document.getElementById("rollBtn");
+    const stop = document.getElementById("stepBtn");
+
+    roll.addEventListener("click", () => {
+      let currentRoll = Math.floor(Math.random() * 6) + 1;
+
+      if (currentRoll != 1) {
+        totalRoll += currentRoll;
+        console.log(totalRoll);
+      } else {
+        totalRoll = 0;
+        console.log("bust!");
+        console.log(`Your current score is ${this.score}`);
+        return;
+      }
+    });
+    stop.addEventListener("click", () => {
+      this.score += totalRoll;
       totalRoll = 0;
-      console.log("bust!");
-    }
+      console.log(`Your current score is ${this.score}`);
+      return;
+    });
   }
 }
 
@@ -41,6 +56,6 @@ player2.playerEnter("Alice");
 window.addEventListener("load", runapp);
 
 function runapp() {
-  const button = document.getElementById("rollBtn");
-  button.addEventListener("click", player1.playerRoll);
+  const button = document.getElementById("startBtn");
+  button.addEventListener("click", player1.playerRoll(player1.score));
 }
