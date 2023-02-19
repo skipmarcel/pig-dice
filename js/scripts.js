@@ -19,7 +19,6 @@ class Player {
   }
 
   playerRoll() {
-    console.log(this.score);
     let totalRoll = 0;
 
     const roll = document.getElementById("rollBtn");
@@ -38,6 +37,7 @@ class Player {
         return;
       }
     });
+
     stop.addEventListener("click", () => {
       this.score += totalRoll;
       totalRoll = 0;
@@ -50,12 +50,16 @@ class Player {
 const player1 = new Player(1);
 const player2 = new Player(2);
 
-player1.playerEnter("John");
-player2.playerEnter("Alice");
-
 window.addEventListener("load", runapp);
 
 function runapp() {
-  const button = document.getElementById("startBtn");
-  button.addEventListener("click", player1.playerRoll(player1.score));
+  const startRoll = document.getElementById("startBtn");
+  const name = document.getElementById("begin");
+
+  name.addEventListener("click", () => {
+    player1.playerEnter(document.getElementById("enterName1").value);
+    player2.playerEnter(document.getElementById("enterName2").value);
+  });
+
+  startRoll.addEventListener("click", player1.playerRoll(player1.score));
 }
