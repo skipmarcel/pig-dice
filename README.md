@@ -34,17 +34,13 @@ _Each turn, a player repeatedly rolls a die until either a 1 is rolled or the pl
 
 _Describe: playerEnter()_
 
-_Test: "Player can enter thier name for player 1 and player 2"_
+_Test: "Player can enter their name for player 1 and player 2"_
 _Code: playerEnter();_
 _Expected Output: console.log("Player Name John")_
 
-_Test: "When it encounters the number 1 it should be replaced with "Beep!"_
-_Code: robogerLogic(5);_
-_Expected Output: [0, "Beep!", 2, 3, 4, 5]_
-
-_Test: "When it encounters the number 2 it should be replaced with "Boop!"_
-_Code: robogerLogic(10);_
-_Expected Output: [0, 'Beep!', 'Boop!', "Won't you be my neighbor?", 4, 5, 6, 7, 8, 9, 'Beep!']_
+_Test: "When player rolls, playerRoll() will generate a random number "_
+_Code: playerRoll();_
+_Expected Output: number between 1 and 6_
 
 ## License
 
