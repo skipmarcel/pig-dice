@@ -29,7 +29,7 @@ class Player {
 
       if (currentRoll != 1) {
         totalRoll += currentRoll;
-        console.log(totalRoll);
+        console.log("you rolled a ", currentRoll, "for a total of", totalRoll);
       } else {
         totalRoll = 0;
         console.log("bust!");
@@ -39,9 +39,9 @@ class Player {
     });
 
     stop.addEventListener("click", () => {
-      this.score += totalRoll;
+      player1.score += totalRoll;
       totalRoll = 0;
-      console.log(`Your current score is ${this.score}`);
+      console.log(player1.score + " points for " + player1.name);
       return;
     });
   }

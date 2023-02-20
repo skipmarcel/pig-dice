@@ -6,31 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/styles.css" />
     <script src="js/scripts.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro&family=Fredoka+One"
+    />
     <title>Pig Dice</title>
   </head>
   <body>
-  
-  <label for="enterName1">Enter player 1 name:</label>
-  <input type="text" id="enterName1"></input>
+    <div id="scoreBox">
+      <div id="playerOneScore">PLAYER 1 ~ <span>0</span></div>
+      <div id="playerTwoScore">PLAYER 2 ~ <span>0</span></div>
+    </div>
 
-  <div id="submitButton">
-  <button type="button" id="nameSubmit">Submit</button>
-  </div>
+    <div id="buttons">
+      <div>
+        <label for="enterName1">Enter player 1 name:</label>
+        <input type="text" id="enterName1" />
+      </div>
 
-  <br>
-  <label for="enterName2">Enter player 2 name:</label>
-  <input type="text" id="enterName2"></input>
+      <div>
+        <label for="enterName2">Enter player 2 name:</label>
+        <input type="text" id="enterName2" />
+      </div>
 
-  
-  <br>
-  <br>
-    <button type="button" class="btn-primary" id="startBtn">
-      Start rolling!
-    </button>
-    <br>
-    <br>
-    <button type="button" class="btn-primary" id="rollBtn">Roll</button>
-    <button type="button" class="btn-primary" id="stepBtn">Step away!</button>
-    
+      <div>
+        <button type="button" id="nameSubmit">Submit</button>
+      </div>
+
+      <div>
+        <button type="button" class="btn-primary" id="startBtn">
+          Start rolling!
+        </button>
+      </div>
+
+      <div>
+        <button type="button" class="btn-primary" id="rollBtn">Roll</button>
+        <button type="button" class="btn-primary" id="stepBtn">
+          Step away!
+        </button>
+      </div>
+    </div>
   </body>
 </html>

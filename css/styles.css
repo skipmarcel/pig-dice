@@ -1,3 +1,56 @@
+body {
+  background-color: aquamarine;
+}
+
+#scoreBox {
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: darkblue;
+  justify-content: center;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+#scoreBox > div {
+  text-align: center;
+  margin: 10px;
+  width: 260px;
+  line-height: 50px;
+  font-size: 30px;
+  color: darkblue;
+  border-radius: 20px;
+  background-color: aquamarine;
+  font-family: "Fredoka One";
+  text-shadow: 2px 2px white;
+}
+
+#scoreBox > div > span {
+  color: crimson;
+}
+
+#buttons {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  background-color: darkblue;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+#buttons > div {
+  text-align: center;
+  margin: 10px;
+  width: 460px;
+  line-height: 50px;
+  font-size: 20px;
+  color: darkblue;
+  border-radius: 20px;
+  background-color: aquamarine;
+  font-family: "Fredoka One";
+  text-shadow: 2px 2px white;
+}
+
 #startBtn {
   visibility: hidden;
 }
@@ -10,13 +63,13 @@
   visibility: hidden;
 }
 
-#submitButton {
-  display: block;
-  position: fixed;
-  margin-left: 55%;
-  margin-top: -2.2%;
-}
-
 #nameSubmit {
   border-radius: 10px;
+}
+
+input {
+  border-radius: 10px;
+  font-family: "Fredoka One";
+  font-size: 18px;
+  text-align: center;
 }
