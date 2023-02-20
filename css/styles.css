@@ -1,11 +1,22 @@
-/* #startBtn {
-  display: none;
+#startBtn {
+  visibility: hidden;
 }
 
 #rollBtn {
-  display: none;
+  visibility: hidden;
 }
 
 #stepBtn {
-  display: none;
-} */
+  visibility: hidden;
+}
+
+#submitButton {
+  display: block;
+  position: fixed;
+  margin-left: 55%;
+  margin-top: -2.2%;
+}
+
+#nameSubmit {
+  border-radius: 10px;
+}

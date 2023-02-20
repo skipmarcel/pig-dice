@@ -21,8 +21,8 @@ class Player {
   playerRoll() {
     let totalRoll = 0;
 
-    const roll = document.getElementById("rollBtn");
-    const stop = document.getElementById("stepBtn");
+    let roll = document.getElementById("rollBtn");
+    let stop = document.getElementById("stepBtn");
 
     roll.addEventListener("click", () => {
       let currentRoll = Math.floor(Math.random() * 6) + 1;
@@ -53,13 +53,32 @@ const player2 = new Player(2);
 window.addEventListener("load", runapp);
 
 function runapp() {
-  const startRoll = document.getElementById("startBtn");
-  const name = document.getElementById("begin");
+  let startRoll = document.getElementById("startBtn");
+  let name = document.getElementById("nameSubmit");
+  let roll = document.getElementById("rollBtn");
+  let stop = document.getElementById("stepBtn");
 
   name.addEventListener("click", () => {
     player1.playerEnter(document.getElementById("enterName1").value);
     player2.playerEnter(document.getElementById("enterName2").value);
+    let playerTurn = document.createElement("p");
+    playerTurn.style.cssText = "display:inline";
+    playerTurn.innerText = " " + player1.name;
+    document.getElementById("startBtn").after(playerTurn);
+    document.createElement("p");
+    hide(startRoll);
   });
+  startRoll.addEventListener("click", () => {
+    player1.playerRoll(player1.score);
+    hide(roll);
+    hide(stop);
+  });
+}
 
-  startRoll.addEventListener("click", player1.playerRoll(player1.score));
+function hide(element) {
+  if (element.style.visibility === "visible") {
+    element.style.visibility = "collapse";
+  } else {
+    element.style.visibility = "visible";
+  }
 }
