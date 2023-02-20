@@ -36,24 +36,54 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+#buttons > #nameButtonDiv {
+  width: 120px;
+  background-color: darkblue;
 }
 
 #buttons > div {
   text-align: center;
-  margin: 10px;
+  margin: 5px;
   width: 460px;
   line-height: 50px;
   font-size: 20px;
   color: darkblue;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: aquamarine;
   font-family: "Fredoka One";
   text-shadow: 2px 2px white;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
-#startBtn {
-  visibility: hidden;
+.button {
+  background-color: darkblue;
+  border: none;
+  border-radius: 10px;
+  color: aliceblue;
+  padding: 8px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: auto;
+  cursor: pointer;
+  font-family: "Fredoka One";
+  opacity: 0.2;
+  transition: 0.3s;
 }
+
+.button:hover {
+  opacity: 1;
+}
+
+/* #startBtn {
+  visibility: hidden;
+} */
 
 #rollBtn {
   visibility: hidden;
@@ -64,7 +94,6 @@ body {
 }
 
 #nameSubmit {
-  border-radius: 10px;
 }
 
 input {
@@ -72,4 +101,194 @@ input {
   font-family: "Fredoka One";
   font-size: 18px;
   text-align: center;
+}
+
+.wrapper {
+  perspective: 10000px;
+  perspective-origin: 50% 100px;
+  width: 111px;
+  height: 111px;
+  margin: 2px;
+  position: absolute;
+  -webkit-animation: mymove linear 1 3s;
+  -moz-animation: mymove linear 1 3s;
+  -o-animation: mymove linear 1 3s;
+  animation: mymove linear 1 3s;
+}
+
+.wrapper2 {
+  top: 130px;
+  -webkit-animation: mymove2 linear 1 3s;
+  -moz-animation: mymove2 linear 1 3s;
+  -o-animation: mymove2 linear 1 3s;
+  animation: mymove2 linear 1 3s;
+}
+
+.die {
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  transform-style: preserve-3d;
+  -webkit-animation: spin 3s linear 1;
+  -moz-animation: spin 3s linear 1;
+  -o-animation: spin 3s linear 1;
+  animation: spin 3s linear 1;
+}
+
+.die2 {
+  -webkit-animation: spin2 3s linear 1;
+  -moz-animation: spin2 3s linear 1;
+  -o-animation: spin2 3s linear 1;
+  animation: spin2 3s linear 1;
+}
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 00%;
+  top: 0%;
+  display: block;
+  background: white;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.face1 {
+  transform: translateZ(0px);
+  background: url(http://upload.wikimedia.org/wikipedia/commons/c/c2/Die_Faces.svg)
+    no-repeat -11px -121px;
+  width: 111px;
+  height: 111px;
+}
+.face2 {
+  transform: translateZ(-111px) rotateY(180deg);
+  background: url(http://upload.wikimedia.org/wikipedia/commons/c/c2/Die_Faces.svg)
+    no-repeat -588px -121px;
+  width: 111px;
+  height: 111px;
+}
+.face3 {
+  transform: rotateY(-270deg) translateX(111px);
+  transform-origin: top right;
+  background: url(http://upload.wikimedia.org/wikipedia/commons/c/c2/Die_Faces.svg)
+    no-repeat -241px -121px;
+  width: 111px;
+  height: 111px;
+}
+.face4 {
+  transform: rotateY(270deg) translateX(-111px);
+  transform-origin: center left;
+  background: url(http://upload.wikimedia.org/wikipedia/commons/c/c2/Die_Faces.svg)
+    no-repeat -356px -121px;
+  width: 111px;
+  height: 111px;
+}
+.face5 {
+  transform: rotateX(-90deg) translateY(0px);
+  transform-origin: top center;
+  background: url(http://upload.wikimedia.org/wikipedia/commons/c/c2/Die_Faces.svg)
+    no-repeat -473px -121px;
+  width: 111px;
+  height: 111px;
+}
+.face6 {
+  transform: rotateX(90deg) translateY(0px);
+  transform-origin: bottom center;
+  background: url(http://upload.wikimedia.org/wikipedia/commons/c/c2/Die_Faces.svg)
+    no-repeat -126px -121px;
+  width: 111px;
+  height: 111px;
+}
+
+/* spin animation */
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotateX(720deg) rotateY(360deg) rotateZ(1080deg);
+  }
+}
+
+@-moz-keyframes spin {
+  100% {
+    -webkit-transform: rotateX(720deg) rotateY(360deg) rotateZ(1080deg);
+  }
+}
+
+@-o-keyframes spin {
+  100% {
+    -webkit-transform: rotateX(720deg) rotateY(360deg) rotateZ(1080deg);
+  }
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotateX(720deg) rotateY(360deg) rotateZ(1080deg);
+  }
+}
+
+/* spin2 animation */
+
+@-webkit-keyframes spin2 {
+  100% {
+    -webkit-transform: rotateX(-360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+@-moz-keyframes spin2 {
+  100% {
+    -webkit-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+@-o-keyframes spin2 {
+  100% {
+    -webkit-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+@keyframes spin2 {
+  100% {
+    -webkit-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+/* mymove animation */
+
+@keyframes mymove {
+  0% {
+    left: -200px;
+  }
+  100% {
+    left: 2400px;
+  }
+}
+
+@-webkit-keyframes mymove {
+  0% {
+    left: -200px;
+  }
+  100% {
+    left: 2400px;
+  }
+}
+
+/* mymove2 animation */
+
+@keyframes mymove2 {
+  0% {
+    left: -400px;
+  }
+  100% {
+    left: 2200px;
+  }
+}
+
+@-webkit-keyframes mymove2 {
+  0% {
+    left: -400px;
+  }
+  100% {
+    left: 2200px;
+  }
 }
