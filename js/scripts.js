@@ -36,32 +36,32 @@ class Player {
         replaceTurnName();
         return;
       }
-      diceRestart();
+      // diceRestart();
     });
 
     function replaceTurnName() {
       playerTurn.innerText = names().name;
     }
+    //Dice animation start
+    // function diceRestart() {
+    //   let wrapper = document.querySelector(".wrapper");
+    //   let wrapper2 = document.querySelector(".wrapper2");
+    //   let die = document.querySelector(".die");
+    //   let die2 = document.querySelector(".die2");
 
-    function diceRestart() {
-      let wrapper = document.querySelector(".wrapper");
-      let wrapper2 = document.querySelector(".wrapper2");
-      let die = document.querySelector(".die");
-      let die2 = document.querySelector(".die2");
+    //   wrapper.style.animationName = "none";
+    //   wrapper2.style.animationName = "none";
+    //   die.style.animationName = "none";
+    //   die2.style.animationName = "none";
 
-      wrapper.style.animationName = "none";
-      wrapper2.style.animationName = "none";
-      die.style.animationName = "none";
-      die2.style.animationName = "none";
-
-      requestAnimationFrame(() => {
-        wrapper.style.animationName = "";
-        wrapper2.style.animationName = "";
-        die.style.animationName = "";
-        die2.style.animationName = "";
-      });
-    }
-
+    //   requestAnimationFrame(() => {
+    //     wrapper.style.animationName = "";
+    //     wrapper2.style.animationName = "";
+    //     die.style.animationName = "";
+    //     die2.style.animationName = "";
+    //   });
+    // }
+    //Step away button adds to score
     stop.addEventListener("click", () => {
       let scoreText = document.getElementById("scoreInfoText");
       names().score += totalRoll;
@@ -69,11 +69,14 @@ class Player {
       totalRoll = 0;
       let tally = document.getElementById(`${names().name}`);
       tally.innerText = names().score;
-      console.log(`${names().name}'s current score is ${this.score}`);
+      if (names().score >= 5) {
+        scoreText.innerText = player1.name + " is the winner!";
+      }
       turn = swapTurn();
       replaceTurnName();
       return;
     });
+
     function swapTurn() {
       if (turn) {
         return false;
@@ -110,7 +113,7 @@ function runapp() {
 
     playerTurn = document.createElement("p");
     playerTurn.style.cssText =
-      "display:inline; color: darkblue; font-size: 24px; text-align: center; margin-left: 4px; margin-right: 5px";
+      "display:inline; color: darkblue; font-size: 20px; text-align: center; margin-left: 15px; margin-right: 10px, padding-left: 8px";
     playerTurn.innerText = names().name;
     document.getElementById("startBtn").before(playerTurn);
   });
@@ -129,7 +132,7 @@ function hide(element) {
     element.style.visibility = "visible";
   }
 }
-//checks the current turn, then returns player 1 or player 2 depending on whos turn it is
+//checks the current turn, then returns player 1 or player 2 depending on whoes turn it is
 function names() {
   if (turn) {
     return player1;
