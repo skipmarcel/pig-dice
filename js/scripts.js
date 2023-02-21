@@ -95,7 +95,7 @@ function runapp() {
     player2.playerEnter(document.getElementById("enterName2").value);
     let playerTurn = document.createElement("p");
     playerTurn.style.cssText =
-      "display:inline; color: darkblue; font-size: 18px; text-align: center";
+      "display:inline; color: darkblue; font-size: 20px; text-align: center";
     playerTurn.innerText = " " + player1.name;
     document.getElementById("startBtn").after(playerTurn);
   });
