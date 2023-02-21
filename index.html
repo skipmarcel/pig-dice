@@ -14,10 +14,10 @@
   </head>
   <body>
     <div id="scoreBox">
-      <div id="playerOneScore">PLAYER 1 ~ <span>0</span></div>
-      <div id="playerTwoScore">PLAYER 2 ~ <span>0</span></div>
+      <div id="playerOneScore">PLAYER 1 ~ <span id="p1Score">0</span></div>
+      <div id="playerTwoScore">PLAYER 2 ~ <span id="p2Score">0</span></div>
     </div>
-
+    <!-- name enter page -->
     <div id="buttons">
       <div id="firstPage">
         <div>
@@ -33,6 +33,7 @@
           <button class="button" type="button" id="nameSubmit">Submit</button>
         </div>
       </div>
+      <!-- game page -->
       <div id="secondPage" hidden>
         <div>
           <button
@@ -72,6 +73,10 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <div id="scoreInfo">
+      <span id="scoreInfoText"></span>
     </div>
   </body>
 </html>

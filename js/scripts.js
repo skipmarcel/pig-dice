@@ -26,10 +26,15 @@ class Player {
 
     roll.addEventListener("click", () => {
       let currentRoll = Math.floor(Math.random() * 6) + 1;
-
+      let scoreText = document.getElementById("scoreInfoText");
       if (currentRoll != 1) {
         totalRoll += currentRoll;
-        console.log("you rolled a ", currentRoll, "for a total of", totalRoll);
+        scoreText.innerText =
+          player1.name +
+          " rolled a " +
+          currentRoll +
+          " for a total of " +
+          totalRoll;
       } else {
         totalRoll = 0;
         console.log("bust!");
@@ -39,7 +44,7 @@ class Player {
       diceRestart();
     });
 
-    function diceRestart(event) {
+    function diceRestart() {
       let wrapper = document.querySelector(".wrapper");
       let wrapper2 = document.querySelector(".wrapper2");
       let die = document.querySelector(".die");
@@ -59,10 +64,12 @@ class Player {
     }
 
     stop.addEventListener("click", () => {
+      let scoreText = document.getElementById("scoreInfoText");
       player1.score += totalRoll;
       totalRoll = 0;
-      console.log(player1.score + " points for " + player1.name);
-      return;
+      scoreText.innerText = player1.score + " points for " + player1.name;
+      let tally = document.getElementById("p1Score");
+      tally.innerText = player1.score;
     });
   }
 }

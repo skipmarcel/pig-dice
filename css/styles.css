@@ -48,7 +48,7 @@ body {
 #buttons > div {
   text-align: center;
   margin: 5px;
-  width: 460px;
+  width: 440px;
   line-height: 50px;
   font-size: 20px;
   color: darkblue;
@@ -58,6 +58,8 @@ body {
   text-shadow: 2px 2px white;
   padding-top: 2px;
   padding-bottom: 2px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .button {
@@ -65,7 +67,7 @@ body {
   border: none;
   border-radius: 10px;
   color: aliceblue;
-  padding: 8px 15px;
+  padding: 8px 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -103,6 +105,13 @@ input {
   text-align: center;
 }
 
+#scoreInfo {
+  font-family: "Fredoka One";
+  font-size: 20px;
+  margin-left: 42%;
+  margin-top: 15px;
+}
+
 .wrapper {
   perspective: 10000px;
   perspective-origin: 50% 100px;
@@ -110,18 +119,18 @@ input {
   height: 111px;
   margin: 2px;
   position: absolute;
-  -webkit-animation: mymove linear 1 3s;
-  -moz-animation: mymove linear 1 3s;
-  -o-animation: mymove linear 1 3s;
-  animation: mymove linear 1 3s;
+  -webkit-animation: mymove linear 1 2s;
+  -moz-animation: mymove linear 1 2s;
+  -o-animation: mymove linear 1 2s;
+  animation: mymove linear 1 2s;
 }
 
 .wrapper2 {
   top: 130px;
-  -webkit-animation: mymove2 linear 1 3s;
-  -moz-animation: mymove2 linear 1 3s;
-  -o-animation: mymove2 linear 1 3s;
-  animation: mymove2 linear 1 3s;
+  -webkit-animation: mymove2 linear 1 2s;
+  -moz-animation: mymove2 linear 1 2s;
+  -o-animation: mymove2 linear 1 2s;
+  animation: mymove2 linear 1 2s;
 }
 
 .die {
@@ -129,10 +138,10 @@ input {
   height: inherit;
   position: absolute;
   transform-style: preserve-3d;
-  -webkit-animation: spin 3s linear 1;
-  -moz-animation: spin 3s linear 1;
-  -o-animation: spin 3s linear 1;
-  animation: spin 3s linear 1;
+  -webkit-animation: spin 2s linear 1;
+  -moz-animation: spin 2s linear 1;
+  -o-animation: spin 2s linear 1;
+  animation: spin 2s linear 1;
 }
 
 .die2 {
