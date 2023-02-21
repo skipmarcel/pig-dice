@@ -8,19 +8,13 @@ class Player {
   playerEnter(name) {
     if (!this.name) {
       this.name = name;
-      console.log(
-        this.name + " has entered the game as player " + this.playerNumber
-      );
     } else {
-      console.log(
-        this.name + " has already entered as player " + this.playerNumber
-      );
     }
   }
 
   playerRoll() {
+    playerTurn.innerText = names().name;
     let totalRoll = 0;
-
     let roll = document.getElementById("rollBtn");
     let stop = document.getElementById("stepBtn");
 
@@ -30,19 +24,24 @@ class Player {
       if (currentRoll != 1) {
         totalRoll += currentRoll;
         scoreText.innerText =
-          player1.name +
+          names().name +
           " rolled a " +
           currentRoll +
           " for a total of " +
           totalRoll;
       } else {
         totalRoll = 0;
-        console.log("bust!");
-        console.log(`Your current score is ${this.score}`);
+        scoreText.innerText = "BUST!";
+        turn = swapTurn();
+        replaceTurnName();
         return;
       }
       diceRestart();
     });
+
+    function replaceTurnName() {
+      playerTurn.innerText = names().name;
+    }
 
     function diceRestart() {
       let wrapper = document.querySelector(".wrapper");
@@ -65,17 +64,30 @@ class Player {
 
     stop.addEventListener("click", () => {
       let scoreText = document.getElementById("scoreInfoText");
-      player1.score += totalRoll;
+      names().score += totalRoll;
+      scoreText.innerText = totalRoll + " points for " + names().name;
       totalRoll = 0;
-      scoreText.innerText = player1.score + " points for " + player1.name;
-      let tally = document.getElementById("p1Score");
-      tally.innerText = player1.score;
+      let tally = document.getElementById(`${names().name}`);
+      tally.innerText = names().score;
+      console.log(`${names().name}'s current score is ${this.score}`);
+      turn = swapTurn();
+      replaceTurnName();
+      return;
     });
+    function swapTurn() {
+      if (turn) {
+        return false;
+      } else {
+        return true;
+      }
+    }
   }
 }
 
 const player1 = new Player(1);
 const player2 = new Player(2);
+let turn = true;
+let playerTurn;
 
 window.addEventListener("load", runapp);
 
@@ -85,25 +97,28 @@ function runapp() {
   submitted = true;
   let startRoll = document.getElementById("startBtn");
   let name = document.getElementById("nameSubmit");
-  let roll = document.getElementById("rollBtn");
-  let stop = document.getElementById("stepBtn");
 
   name.addEventListener("click", () => {
     document.getElementById("secondPage").hidden = false;
     document.getElementById("firstPage").hidden = true;
+    //
     player1.playerEnter(document.getElementById("enterName1").value);
     player2.playerEnter(document.getElementById("enterName2").value);
-    let playerTurn = document.createElement("p");
+
+    document.getElementById("p1Score").setAttribute("id", player1.name);
+    document.getElementById("p2Score").setAttribute("id", player2.name);
+
+    playerTurn = document.createElement("p");
     playerTurn.style.cssText =
-      "display:inline; color: darkblue; font-size: 20px; text-align: center";
-    playerTurn.innerText = " " + player1.name;
-    document.getElementById("startBtn").after(playerTurn);
+      "display:inline; color: darkblue; font-size: 24px; text-align: center; margin-left: 4px; margin-right: 5px";
+    playerTurn.innerText = names().name;
+    document.getElementById("startBtn").before(playerTurn);
   });
 
   startRoll.addEventListener("click", () => {
-    player1.playerRoll(player1.score);
-    hide(roll);
-    hide(stop);
+    names().playerRoll();
+    startBtn.classList.add("startBtn2");
+    hide(playerTurn);
   });
 }
 
@@ -112,5 +127,13 @@ function hide(element) {
     element.style.visibility = "collapse";
   } else {
     element.style.visibility = "visible";
+  }
+}
+//checks the current turn, then returns player 1 or player 2 depending on whos turn it is
+function names() {
+  if (turn) {
+    return player1;
+  } else {
+    return player2;
   }
 }
