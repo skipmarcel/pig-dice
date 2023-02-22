@@ -32,6 +32,10 @@ body {
   color: crimson;
 }
 
+p {
+  font-family: "Fredoka One";
+}
+
 #buttons {
   display: flex;
   flex-direction: column;

@@ -36,41 +36,48 @@ class Player {
         replaceTurnName();
         return;
       }
-      // diceRestart();
+      diceRestart();
     });
 
     function replaceTurnName() {
       playerTurn.innerText = names().name;
     }
-    //Dice animation start
-    // function diceRestart() {
-    //   let wrapper = document.querySelector(".wrapper");
-    //   let wrapper2 = document.querySelector(".wrapper2");
-    //   let die = document.querySelector(".die");
-    //   let die2 = document.querySelector(".die2");
+    // Dice animation start
+    function diceRestart() {
+      let wrapper = document.querySelector(".wrapper");
+      let wrapper2 = document.querySelector(".wrapper2");
+      let die = document.querySelector(".die");
+      let die2 = document.querySelector(".die2");
 
-    //   wrapper.style.animationName = "none";
-    //   wrapper2.style.animationName = "none";
-    //   die.style.animationName = "none";
-    //   die2.style.animationName = "none";
+      wrapper.style.animationName = "none";
+      wrapper2.style.animationName = "none";
+      die.style.animationName = "none";
+      die2.style.animationName = "none";
 
-    //   requestAnimationFrame(() => {
-    //     wrapper.style.animationName = "";
-    //     wrapper2.style.animationName = "";
-    //     die.style.animationName = "";
-    //     die2.style.animationName = "";
-    //   });
-    // }
+      requestAnimationFrame(() => {
+        wrapper.style.animationName = "";
+        wrapper2.style.animationName = "";
+        die.style.animationName = "";
+        die2.style.animationName = "";
+      });
+    }
     //Step away button adds to score
     stop.addEventListener("click", () => {
       let scoreText = document.getElementById("scoreInfoText");
+      let playAgain = document.createElement("button");
+      playAgain.id = "playAgainButton";
+      playAgain.innerHTML = "PLAY AGAIN";
+      playAgain.addEventListener("click", reset);
+      playAgain.style.cssText =
+        "visibility: visible; position: absolute; margin-left: 12px; margin-top: 16px; background-color: darkblue; border: none; border-radius: 10px; color: aliceblue; padding: 8px 10px; text-align: center; text-decoration: none; font-size: 16px";
       names().score += totalRoll;
       scoreText.innerText = totalRoll + " points for " + names().name;
       totalRoll = 0;
       let tally = document.getElementById(`${names().name}`);
       tally.innerText = names().score;
       if (names().score >= 5) {
-        scoreText.innerText = player1.name + " is the winner!";
+        scoreText.innerText = names().name + " is the winner!";
+        document.querySelector("p").before(playAgain);
       }
       turn = swapTurn();
       replaceTurnName();
@@ -114,6 +121,7 @@ function runapp() {
     playerTurn = document.createElement("p");
     playerTurn.style.cssText =
       "display:inline; color: darkblue; font-size: 20px; text-align: center; margin-left: 15px; margin-right: 10px, padding-left: 8px";
+    playerTurn.className = "playerPtag";
     playerTurn.innerText = names().name;
     document.getElementById("startBtn").before(playerTurn);
   });
@@ -139,4 +147,25 @@ function names() {
   } else {
     return player2;
   }
+}
+
+function reset() {
+  let buttonWeWantToKill = document.getElementById("playAgainButton");
+  buttonWeWantToKill.remove();
+  totalRoll = 0;
+  turn = true;
+  document.getElementById(player1.name).setAttribute("id", "p1Score");
+  document.getElementById("p1Score").innerText = "0";
+  names().name = null;
+  names().score = 0;
+  turn = false;
+  document.getElementById(player2.name).setAttribute("id", "p2Score");
+  document.getElementById("p2Score").innerText = "0";
+  names().name = null;
+  names().score = 0;
+
+  document.getElementById("firstPage").hidden = false;
+  document.getElementById("secondPage").hidden = true;
+  document.getElementById("enterName1").value = "";
+  document.getElementById("enterName2").value = "";
 }
